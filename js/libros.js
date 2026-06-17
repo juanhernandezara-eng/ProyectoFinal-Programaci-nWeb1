@@ -90,6 +90,7 @@ function guardarLibro() {
     const body = {
         nombre: document.getElementById('nombre').value,
         nivel: document.getElementById('nivel').value,
+        lote: document.getElementById('lote').value,
         tipo: parseInt(document.getElementById('tipo').value),
         edicion: document.getElementById('edicion').value
     }
