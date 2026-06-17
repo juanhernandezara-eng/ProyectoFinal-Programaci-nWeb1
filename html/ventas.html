@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiblioCECAR – Ventas</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+  <script src="../js/api.js"></script>
+  <script src="../js/configuracion.js"></script>
+  <script src="../js/ventas.js"></script>
+</head>
+<body onload="verificarAcceso()" style="display:none">
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-titulo">BiblioCECAR</div>
+    <div class="sidebar-seccion">Principal</div>
+    <nav class="sidebar-menu">
+      <a href="dashboard.html"><span class="icono">🏠</span> Dashboard</a>
+      <a href="libros.html"><span class="icono">📚</span> Libros</a>
+      <a href="lotes.html"><span class="icono">📦</span> Lotes</a>
+      <a href="ventas.html" class="activo"><span class="icono">📈</span> Ventas</a>
+      <a href="clientes.html"><span class="icono">👥</span> Clientes</a>
+      <a href="inventario.html"><span class="icono">🗂️</span> Inventario</a>
+    </nav>
+    <div class="sidebar-usuario">
+      <div class="avatar">U</div>
+      <div class="info">
+        <div class="nombre">USUARIO</div>
+        <div class="correo">usuario@cecar.edu</div>
+      </div>
+      <button onclick="cerrarSesion()" class="btn btn-gris" style="margin-top:8px; width:100%; font-size:11px;">
+        Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <main class="contenido">
+    <div class="pagina">
+      <div class="mod-caja">
+
+        <div class="mod-barra mod-barra-oscuro">
+          <span style="font-size:12px; font-weight:700; color:#fff; text-transform:uppercase;">NUEVA VENTA / LISTADO</span>
+        </div>
+
+        <div class="mod-cuerpo">
+
+          <div class="mod-acciones">
+            <a href="#" class="tab activo">Listado</a>
+            <a href="#" class="tab">+ Nueva Venta</a>
+          </div>
+
+          <div class="buscador">
+            <span>🔍</span>
+            <input type="text" placeholder="Fecha, cliente o libro..." />
+            <button class="btn btn-naranja btn-sm">FILTRAR</button>
+          </div>
+
+          <div class="tabla-wrap mb16">
+            <table class="tabla">
+              <thead>
+                <tr><th>Comprob.</th><th>Cliente</th><th>Items</th><th>Fecha</th><th>Ver</th></tr>
+              </thead>
+              <tbody id="tablaVentas">
+              </tbody>
+            </table>
+          </div>
+
+          <div class="formulario">
+            <div class="form-titulo">FORMULARIO: NUEVA VENTA</div>
+            <div class="fila col2">
+              <div class="campo">
+                <label>CLIENTE <span class="req">*</span></label>
+                <select class="input" id="clienteId">
+                  <option value="">* Selec. cliente</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label>N° COMPROBANTE</label>
+                <input type="text" class="input" id="numeroComprobante" />
+              </div>
+            </div>
+            <div class="fila col1 mt16">
+              <div class="campo">
+                <label>OBSERVACIONES</label>
+                <textarea class="input" id="observaciones" rows="2" placeholder="Notas adicionales..."></textarea>
+              </div>
+            </div>
+            <div class="mt16">
+              <div class="form-titulo">ITEMS DE VENTA</div>
+              <div class="fila mt8" style="grid-template-columns: 1fr 1fr 100px 40px; align-items:end; gap:10px;">
+                <div class="campo" style="margin-bottom:0;">
+                  <select class="input" id="libroId">
+                    <option value="">* Libro</option>
+                  </select>
+                </div>
+                <div class="campo" style="margin-bottom:0;">
+                  <select class="input" id="lote">
+                    <option value="">* Lote</option>
+                  </select>
+                </div>
+                <div class="campo" style="margin-bottom:0;">
+                  <input type="number" class="input" id="cantidad" placeholder="Cant." />
+                </div>
+                <button class="btn btn-naranja" style="height:38px; padding:0 12px;" onclick="agregarItem()">+</button>
+              </div>
+              <div id="listaItems" class="mt8"></div>
+            </div>
+            <div class="acciones mt16">
+              <button class="btn btn-naranja" onclick="registrarVenta()">REGISTRAR VENTA</button>
+              <button class="btn btn-gris" onclick="limpiarVenta()">CANCELAR</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

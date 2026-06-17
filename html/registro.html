@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiblioCECAR – Registro de Usuario</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+  <script src="../js/configuracion.js"></script> 
+</head>
+
+<body class="pag-registro">
+
+  <div class="caja-registro">
+    <div class="cab">
+      <h2>REGISTRO DE USUARIO</h2>
+      <p>Crear cuenta</p>
+    </div>
+
+    <div class="cuerpo">
+
+      <div class="fila col1">
+        <div class="campo">
+          <label>IDENTIFICACIÓN <span class="req">*</span></label>
+          <input type="text" class="input" placeholder="Número de identificación" id="identificacion" autofocus />
+        </div>
+      </div>
+
+      <div class="fila col1 mt16">
+        <div class="campo">
+          <label>NOMBRES COMPLETOS <span class="req">*</span></label>
+          <input type="text" class="input" placeholder="Nombres y apellidos" id="nombres" />
+        </div>
+      </div>
+
+      <div class="fila col1 mt16">
+        <div class="campo">
+          <label>CORREO ELECTRONICO <span class="req">*</span></label>
+          <input type="email" class="input" placeholder="correo@dominio.com" id="correo" />
+        </div>
+      </div>
+
+      <div class="fila col2 mt16">
+        <div class="campo">
+          <label>CONTRASENA <span class="req">*</span></label>
+          <input type="password" class="input" placeholder="••••••••" id="contrasena" />
+        </div>
+        <div class="campo">
+          <label>ROL <span class="req">*</span></label>
+          <select class="input" id="rol">
+            <option value="">Seleccionar rol</option>
+            <option value="0">Admin</option>
+            <option value="1">Bibliotecario</option>
+            <option value="2">Consulta</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="acciones">
+        <button class="btn btn-naranja" onclick="registrar()">REGISTRAR</button>
+        <button class="btn btn-gris" onclick="window.location.href='../index.html'">CANCELAR</button>
+      </div>
+
+
+    </div>
+  </div>
+
+</body>
+
+</html>

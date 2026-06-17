@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiblioCECAR – Gestion de Lotes</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+  <script src="../js/api.js"></script>
+  <script src="../js/configuracion.js"></script>
+  <script src="../js/lotes.js"></script>
+</head>
+<body onload="verificarAcceso()" style="display:none">
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-titulo">BiblioCECAR</div>
+    <div class="sidebar-seccion">Principal</div>
+    <nav class="sidebar-menu">
+      <a href="dashboard.html"><span class="icono">🏠</span> Dashboard</a>
+      <a href="libros.html"><span class="icono">📚</span> Libros</a>
+      <a href="lotes.html" class="activo"><span class="icono">📦</span> Lotes</a>
+      <a href="ventas.html"><span class="icono">📈</span> Ventas</a>
+      <a href="clientes.html"><span class="icono">👥</span> Clientes</a>
+      <a href="inventario.html"><span class="icono">🗂️</span> Inventario</a>
+    </nav>
+    <div class="sidebar-usuario">
+      <div class="avatar">U</div>
+      <div class="info">
+        <div class="nombre">USUARIO</div>
+        <div class="correo">usuario@cecar.edu</div>
+      </div>
+      <button onclick="cerrarSesion()" class="btn btn-gris" style="margin-top:8px; width:100%; font-size:11px;">
+        Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <main class="contenido">
+    <div class="pagina">
+      <div class="mod-caja">
+
+        <div class="mod-barra mod-barra-oscuro">
+          <span style="font-size:12px; font-weight:700; color:#fff; text-transform:uppercase;">GESTION DE LOTES</span>
+        </div>
+
+        <div class="mod-cuerpo">
+
+          <div class="mod-acciones">
+            <a href="#" class="tab activo">Listado</a>
+            <a href="#" class="tab">+ Nuevo Lote</a>
+          </div>
+
+          <div class="tabla-wrap mb16">
+            <table class="tabla">
+              <thead>
+                <tr><th>ID Lote</th><th>Codigo</th><th>Libros Asociados</th></tr>
+              </thead>
+              <tbody id="tablaLotes">
+              </tbody>
+            </table>
+          </div>
+
+          <div class="formulario">
+            <div class="form-titulo">FORMULARIO: NUEVO LOTE</div>
+            <div class="fila col1">
+              <div class="campo">
+                <label>CODIGO DE LOTE <span class="req">*</span></label>
+                <input type="text" class="input" id="codigoLote" placeholder="Ej: L-04" />
+              </div>
+            </div>
+            <div class="acciones">
+              <button class="btn btn-naranja" onclick="guardarLote()">REGISTRAR</button>
+              <button class="btn btn-gris" onclick="document.getElementById('codigoLote').value=''">CANCELAR</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

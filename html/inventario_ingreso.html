@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiblioCECAR – Ingreso de Inventario</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+  <script src="../js/api.js"></script>
+  <script src="../js/configuracion.js"></script>
+</head>
+<body onload="verificarAcceso()">
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-titulo">BiblioCECAR</div>
+    <div class="sidebar-seccion">Principal</div>
+    <nav class="sidebar-menu">
+      <a href="dashboard.html"><span class="icono">🏠</span> Dashboard</a>
+      <a href="libros.html"><span class="icono">📚</span> Libros</a>
+      <a href="lotes.html"><span class="icono">📦</span> Lotes</a>
+      <a href="ventas.html"><span class="icono">📈</span> Ventas</a>
+      <a href="clientes.html"><span class="icono">👥</span> Clientes</a>
+      <a href="inventario.html" class="activo"><span class="icono">🗂️</span> Inventario</a>
+    </nav>
+    <div class="sidebar-usuario">
+      <div class="avatar">U</div>
+      <div class="info">
+        <div class="nombre">USUARIO</div>
+        <div class="correo">usuario@cecar.edu</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="contenido">
+    <div class="pagina">
+      <div class="mod-caja">
+
+        <div class="mod-barra mod-barra-oscuro">
+          <span style="font-size:12px; font-weight:700; color:var(--naranja); text-transform:uppercase;">INGRESOS DE INVENTARIO</span>
+        </div>
+
+        <div class="mod-cuerpo">
+
+          <div class="mod-acciones">
+            <a href="#" class="tab activo">Listado</a>
+            <a href="#" class="tab">+ Nuevo Ingreso</a>
+          </div>
+
+          <div class="buscador">
+            <span>🔍</span>
+            <input type="text" placeholder="Fecha, lote o libro..." />
+            <button class="btn btn-naranja btn-sm">FILTRAR</button>
+          </div>
+
+          <div class="tabla-wrap mb16">
+            <table class="tabla">
+              <thead>
+                <tr><th>Libro</th><th>Unidades</th><th>Lote</th><th>V. Compra</th><th>Ver</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>El Quijote</td><td>10</td><td>L-01</td><td>$20.000</td><td><span class="flecha">→</span></td></tr>
+                <tr><td>Clean Code</td><td>5</td><td>L-02</td><td>$50.000</td><td><span class="flecha">→</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="formulario">
+            <div class="form-titulo">FORMULARIO: NUEVO INGRESO</div>
+            <div class="fila col2">
+              <div class="campo">
+                <label>LIBRO</label>
+                <select class="input">
+                  <option value="">- Seleccionar libro</option>
+                  <option>El Quijote</option><option>Clean Code</option><option>Cien Anos...</option>
+                </select>
+              </div>
+              <div class="campo"><label>UNIDADES</label><input type="number" class="input" placeholder="0" /></div>
+            </div>
+            <div class="fila col2 mt16">
+              <div class="campo"><label>LOTE</label><input type="text" class="input" placeholder="Lote" /></div>
+              <div class="campo"><label>V. COMPRA</label><input type="text" class="input" placeholder="$0.00" /></div>
+            </div>
+            <div class="fila col1 mt16">
+              <div class="campo"><label>V. VENTA PUB.</label><input type="text" class="input" placeholder="$0.00" /></div>
+            </div>
+            <div class="acciones">
+              <button class="btn btn-naranja">REGISTRAR</button>
+              <button class="btn btn-gris">CANCELAR</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mod-pie">
+          <strong>Filtros:</strong> rango de fechas, lote, libro &nbsp;·&nbsp;
+          <strong>Detalle:</strong> ver ingreso individual
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

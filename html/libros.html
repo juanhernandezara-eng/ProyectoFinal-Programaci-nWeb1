@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiblioCECAR – Gestion de Libros</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+  <script src="../js/api.js"></script>
+  <script src="../js/configuracion.js"></script>
+  <script src="../js/libros.js"></script>
+</head>
+<body onload="verificarAcceso()" style="display:none">
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-titulo">BiblioCECAR</div>
+    <div class="sidebar-seccion">Principal</div>
+    <nav class="sidebar-menu">
+      <a href="dashboard.html"><span class="icono">🏠</span> Dashboard</a>
+      <a href="libros.html" class="activo"><span class="icono">📚</span> Libros</a>
+      <a href="lotes.html"><span class="icono">📦</span> Lotes</a>
+      <a href="ventas.html"><span class="icono">📈</span> Ventas</a>
+      <a href="clientes.html"><span class="icono">👥</span> Clientes</a>
+      <a href="inventario.html"><span class="icono">🗂️</span> Inventario</a>
+    </nav>
+    <div class="sidebar-usuario">
+      <div class="avatar">U</div>
+      <div class="info">
+        <div class="nombre">USUARIO</div>
+        <div class="correo">usuario@cecar.edu</div>
+      </div>
+      <button onclick="cerrarSesion()" class="btn btn-gris" style="margin-top:8px; width:100%; font-size:11px;">
+        Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <main class="contenido">
+    <div class="pagina">
+      <div class="mod-caja">
+
+        <div class="mod-barra">
+          <div class="miga">
+            <span class="normal">BIBLIOCecar</span>
+            <span class="activo">LIBROS</span>
+            <div class="icono-user">👤</div>
+          </div>
+        </div>
+
+        <div class="mod-cuerpo">
+
+          <div class="mod-acciones">
+            <a href="#" class="tab activo">Listado</a>
+            <a href="#" class="tab">+ Nuevo Libro</a>
+          </div>
+
+          <div class="buscador">
+            <input type="text" id="buscarLibro" placeholder="Buscar por nombre, nivel, tipo o edicion..." />
+            <button class="btn btn-naranja btn-sm" onclick="filtrarLibros()">FILTRAR</button>
+          </div>
+
+          <div class="tabla-wrap mb16">
+            <table class="tabla">
+              <thead>
+                <tr>
+                  <th>Nombre</th><th>Nivel</th><th>Tipo</th><th>Edicion</th>
+                  <th>Unidades</th><th>Lote</th><th>V.Venta</th><th>Accion</th>
+                </tr>
+              </thead>
+              <tbody id="tablaLibros">
+              </tbody>
+            </table>
+          </div>
+
+          <div class="formulario">
+            <div class="form-titulo" id="formTitulo">FORMULARIO: NUEVO LIBRO</div>
+            <input type="hidden" id="libroId" />
+            <div class="fila col2">
+              <div class="campo">
+                <label>NOMBRE</label>
+                <input type="text" class="input" id="nombre" placeholder="Titulo del libro" />
+              </div>
+              <div class="campo">
+                <label>NIVEL</label>
+                <input type="text" class="input" id="nivel" placeholder="Basico / Medio / Avanzado" />
+              </div>
+            </div>
+            <div class="fila col2 mt16">
+              <div class="campo">
+                <label>TIPO</label>
+                <select class="input" id="tipo">
+                  <option value="">- Seleccionar tipo</option>
+                  <option value="1">1 - Student's Book</option>
+                  <option value="2">2 - Workbook</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label>EDICION</label>
+                <input type="text" class="input" id="edicion" placeholder="1a edicion" />
+              </div>
+            </div>
+            <div class="fila col2 mt16">
+              <div class="campo">
+                <label>UNIDADES</label>
+                <input type="number" class="input" id="unidades" placeholder="0" />
+              </div>
+              <div class="campo">
+                <label>LOTE</label>
+                <select class="input" id="lote">
+                  <option value="">- Selec. Lote</option>
+                </select>
+              </div>
+            </div>
+            <div class="fila col2 mt16">
+              <div class="campo">
+                <label>V. COMPRA</label>
+                <input type="number" class="input" id="valorCompra" placeholder="0" />
+              </div>
+              <div class="campo">
+                <label>V. VENTA</label>
+                <input type="number" class="input" id="valorVentaPublico" placeholder="0" />
+              </div>
+            </div>
+            <div class="acciones">
+              <button class="btn btn-naranja" onclick="guardarLibro()">GUARDAR</button>
+              <button class="btn btn-gris" onclick="limpiarLibro()">CANCELAR</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mod-pie">
+          Busqueda: nombre, nivel, tipo, edicion · Stock: columna de unidades · Acceso: Admin y Bibliotecario
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
