@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiblioCECAR – Iniciar Sesion</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+  <script src="js/registro.js"></script>
+  <script src="js/api.js"></script>
+</head>
+
+<body class="auth-page">
+
+  <div class="auth-card">
+    <div class="logo">
+      <div style="font-size:22px; font-weight:800; color:#2E7D32; letter-spacing:1px;">⬤⬤ CECAR</div>
+    </div>
+
+    <p class="titulo">BiblioCECAR</p>
+    <p class="subtitulo">Sistema de Gestion de Biblioteca</p>
+
+    <div class="campo">
+      <label>CORREO ELECTRONICO <span class="req">*</span></label>
+      <input type="email" class="input" placeholder="usuario@ejemplo.com" id="email" autofocus />
+    </div>
+
+    <div class="campo">
+      <label>CONTRASENA <span class="req">*</span></label>
+      <input type="password" class="input" placeholder="••••••••" id="contrasena" />
+    </div>
+
+    <button class="btn btn-naranja btn-full" onclick="autenticar()">
+      INICIAR SESION
+    </button>
+
+    <hr class="linea" />
+
+    <p class="auth-footer">
+      ¿No tienes cuenta? <a href="html/registro.html">Registrarse</a>
+    </p>
+  </div>
+
+</body>
+
+</html>

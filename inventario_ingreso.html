@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiblioCECAR – Dashboard</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+  <script src="../js/api.js"></script>
+  <script src="../js/configuracion.js"></script>
+  <script src="../js/dashboard.js"></script>
+</head>
+<body onload="verificarAcceso()" style="display:none">
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-titulo">BiblioCECAR</div>
+    <div class="sidebar-seccion">Principal</div>
+    <nav class="sidebar-menu">
+      <a href="dashboard.html" class="activo"><span class="icono">🏠</span> Dashboard</a>
+      <a href="libros.html"><span class="icono">📚</span> Libros</a>
+      <a href="lotes.html"><span class="icono">📦</span> Lotes</a>
+      <a href="ventas.html"><span class="icono">📈</span> Ventas</a>
+      <a href="clientes.html"><span class="icono">👥</span> Clientes</a>
+      <a href="inventario.html"><span class="icono">🗂️</span> Inventario</a>
+    </nav>
+    <div class="sidebar-usuario">
+      <div class="avatar">U</div>
+      <div class="info">
+        <div class="nombre">USUARIO</div>
+        <div class="correo">usuario@cecar.edu</div>
+      </div>
+      <button onclick="cerrarSesion()" class="btn btn-gris" style="margin-top:8px; width:100%; font-size:11px;">
+        Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <main class="contenido">
+    <div class="encabezado" id="encabezado">Bienvenido!</div>
+
+    <div class="pagina">
+
+      <div class="stats">
+        <div class="stat">
+          <div class="numero" id="totalLibros">-</div>
+          <div class="etiqueta">Libros registrados</div>
+          <div class="tipo">LIBROS</div>
+        </div>
+        <div class="stat">
+          <div class="numero" id="totalClientes">-</div>
+          <div class="etiqueta">Clientes activos</div>
+          <div class="tipo">CLIENTE</div>
+        </div>
+        <div class="stat">
+          <div class="numero" id="totalVentas">-</div>
+          <div class="etiqueta">Ventas registradas</div>
+          <div class="tipo">VENTA</div>
+        </div>
+        <div class="stat">
+          <div class="numero" id="totalUsuarios">-</div>
+          <div class="etiqueta">Usuarios registrados</div>
+          <div class="tipo">USUARIOS</div>
+        </div>
+      </div>
+
+      <div class="paneles">
+        <div class="panel">
+          <div class="panel-cab">Ventas por mes</div>
+          <div class="panel-cuerpo">
+            <div class="barras" id="barrasVentas">
+              <div style="color:#999; font-size:12px;">Cargando...</div>
+            </div>
+            <div style="font-size:10px; color:#999; margin-top:6px;" id="escalaBarras"></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-cab">Acceso Rapido</div>
+          <div class="panel-cuerpo">
+            <div class="acceso-grid">
+              <a href="libros.html" class="acceso-btn">📚 Nuevo Libro</a>
+              <a href="ventas.html" class="acceso-btn">📈 Nueva Venta</a>
+              <a href="clientes.html" class="acceso-btn">👥 Nuevo Cliente</a>
+              <a href="inventario.html" class="acceso-btn">👁 Ver Inventario</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-entre mb16">
+        <span class="sec-titulo">VENTAS RECIENTES</span>
+        <a href="ventas.html" class="sec-ver">VER TODO</a>
+      </div>
+      <div class="tabla-wrap">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>COMPROBANTE</th><th>CLIENTE</th><th>FECHA</th><th>ITEMS</th><th>Accion</th>
+            </tr>
+          </thead>
+          <tbody id="tablaVentasRecientes">
+            <tr><td colspan="5" style="text-align:center; color:#999;">Cargando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiblioCECAR – Gestion de Clientes</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+  <script src="../js/api.js"></script>
+  <script src="../js/configuracion.js"></script>
+  <script src="../js/clientes.js"></script>
+</head>
+<body onload="verificarAcceso()" style="display:none">
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-titulo">BiblioCECAR</div>
+    <div class="sidebar-seccion">Principal</div>
+    <nav class="sidebar-menu">
+      <a href="dashboard.html"><span class="icono">🏠</span> Dashboard</a>
+      <a href="libros.html"><span class="icono">📚</span> Libros</a>
+      <a href="lotes.html"><span class="icono">📦</span> Lotes</a>
+      <a href="ventas.html"><span class="icono">📈</span> Ventas</a>
+      <a href="clientes.html" class="activo"><span class="icono">👥</span> Clientes</a>
+      <a href="inventario.html"><span class="icono">🗂️</span> Inventario</a>
+    </nav>
+    <div class="sidebar-usuario">
+      <div class="avatar">U</div>
+      <div class="info">
+        <div class="nombre">USUARIO</div>
+        <div class="correo">usuario@cecar.edu</div>
+      </div>
+      <button onclick="cerrarSesion()" class="btn btn-gris" style="margin-top:8px; width:100%; font-size:11px;">
+        Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <main class="contenido">
+    <div class="pagina">
+      <div class="mod-caja">
+
+        <div class="mod-barra mod-barra-oscuro">
+          <span style="font-size:12px; font-weight:700; color:#fff; text-transform:uppercase;">GESTION DE CLIENTES</span>
+        </div>
+
+        <div class="mod-cuerpo">
+
+          <div style="margin-bottom:12px;">
+            <div class="miga mb8">
+              <span class="normal">BIBLIOCecar</span>
+              <span class="activo">Clientes</span>
+              <div class="icono-user">👤</div>
+            </div>
+            <div class="mod-acciones">
+              <a href="#" class="tab activo">Listado</a>
+              <a href="#" class="tab">+ Nuevo Cliente</a>
+            </div>
+          </div>
+
+          <div class="buscador">
+            <span>🔍</span>
+            <input type="text" id="buscarCliente" placeholder="Buscar cliente por nombre..." />
+            <button class="btn btn-naranja btn-sm" onclick="filtrarClientes()">BUSCAR</button>
+          </div>
+
+          <div class="tabla-wrap mb16">
+            <table class="tabla">
+              <thead>
+                <tr>
+                  <th>ID</th><th>Nombre</th><th>Correo</th>
+                  <th>Celular</th><th>F. Nacimiento</th><th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="tablaClientes">
+              </tbody>
+            </table>
+          </div>
+
+          <div class="formulario">
+            <div class="form-titulo" id="formTitulo">FORMULARIO: NUEVO / EDITAR CLIENTE</div>
+            <input type="hidden" id="clienteIdEdit" />
+            <div class="fila col2">
+              <div class="campo">
+                <label>IDENTIFICACION</label>
+                <input type="text" class="input" id="identificacion" placeholder="Numero de doc." />
+              </div>
+              <div class="campo">
+                <label>NOMBRES COMPLETOS</label>
+                <input type="text" class="input" id="nombres" placeholder="Nombre completo" />
+              </div>
+            </div>
+            <div class="fila mt16" style="grid-template-columns: 1fr 1fr 1fr;">
+              <div class="campo">
+                <label>CORREO</label>
+                <input type="email" class="input" id="email" placeholder="correo@dominio.com" />
+              </div>
+              <div class="campo">
+                <label>CELULAR</label>
+                <input type="text" class="input" id="celular" placeholder="3XX XXX XXXX" />
+              </div>
+              <div class="campo">
+                <label>FECHA NACIMIENTO</label>
+                <input type="date" class="input" id="fechaNacimiento" />
+              </div>
+            </div>
+            <div class="acciones">
+              <button class="btn btn-naranja" onclick="guardarCliente()">GUARDAR</button>
+              <button class="btn btn-gris" onclick="limpiarCliente()">CANCELAR</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mod-pie">
+          Detalle cliente: muestra historial de compras · Acceso: Admin y Bibliotecario
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

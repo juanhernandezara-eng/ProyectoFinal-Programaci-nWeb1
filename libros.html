@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiblioCECAR – Detalle de Venta</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+  <script src="../js/api.js"></script>
+  <script src="../js/detallesVentas.js"></script>
+  <script src="../js/configuracion.js"></script>
+</head>
+<body onload="verificarAcceso()">
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-titulo">BiblioCECAR</div>
+    <div class="sidebar-seccion">Principal</div>
+    <nav class="sidebar-menu">
+      <a href="dashboard.html"><span class="icono">🏠</span> Dashboard</a>
+      <a href="libros.html"><span class="icono">📚</span> Libros</a>
+      <a href="lotes.html"><span class="icono">📦</span> Lotes</a>
+      <a href="ventas.html" class="activo"><span class="icono">📈</span> Ventas</a>
+      <a href="clientes.html"><span class="icono">👥</span> Clientes</a>
+      <a href="inventario.html"><span class="icono">🗂️</span> Inventario</a>
+    </nav>
+    <div class="sidebar-usuario">
+      <div class="avatar" id="avatarLetra">U</div>
+      <div class="info">
+        <div class="nombre" id="sidebarNombre">USUARIO</div>
+        <div class="correo" id="sidebarCorreo">usuario@cecar.edu</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="contenido">
+    <div class="pagina">
+      <div class="detalle-caja">
+        <div class="detalle-cab">DETALLE DE VENTA</div>
+
+        <div class="detalle-cuerpo">
+          <div class="detalle-id" id="ventaTitulo">Cargando...</div>
+
+          <div class="detalle-info">
+            <div class="info-bloque">
+              <div class="info-label">Cliente</div>
+              <div class="info-valor" id="clienteNombre">-</div>
+              <div class="info-valor gris" style="font-size:12px; margin-top:2px;" id="ventaFecha">-</div>
+            </div>
+            <div>
+              <div class="info-bloque" style="margin-bottom:12px;">
+                <div class="info-label">Comprobante</div>
+                <div class="info-valor" id="numeroComprobante">-</div>
+              </div>
+              <div class="info-bloque">
+                <div class="info-label">Observaciones</div>
+                <div class="info-valor" id="observaciones">-</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="font-weight:700; font-size:13px; margin-bottom:10px;">Libros Vendidos</div>
+          <div class="tabla-wrap">
+            <table class="tabla">
+              <thead>
+                <tr><th>Libro</th><th>Lote</th><th>Cant.</th><th>V. Unit.</th><th>Subtotal</th></tr>
+              </thead>
+              <tbody id="tablaItems">
+                <tr><td colspan="5" style="text-align:center; color:#999;">Sin detalle de items disponible</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="total" id="ventaTotal">TOTAL: -</div>
+        </div>
+
+        <div class="detalle-pie">
+          <a href="ventas.html" class="btn btn-gris">← VOLVER</a>
+          <button class="btn btn-naranja" onclick="window.print()">🖨 IMPRIMIR</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

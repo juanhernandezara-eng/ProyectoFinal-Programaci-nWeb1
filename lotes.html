@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiblioCECAR – Inventario / Stock</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+  <script src="../js/api.js"></script>
+  <script src="../js/configuracion.js"></script>
+  <script src="../js/inventario.js"></script>
+</head>
+<body onload="verificarAcceso()" style="display:none">
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-titulo">BiblioCECAR</div>
+    <div class="sidebar-seccion">Principal</div>
+    <nav class="sidebar-menu">
+      <a href="dashboard.html"><span class="icono">🏠</span> Dashboard</a>
+      <a href="libros.html"><span class="icono">📚</span> Libros</a>
+      <a href="lotes.html"><span class="icono">📦</span> Lotes</a>
+      <a href="ventas.html"><span class="icono">📈</span> Ventas</a>
+      <a href="clientes.html"><span class="icono">👥</span> Clientes</a>
+      <a href="inventario.html" class="activo"><span class="icono">🗂️</span> Inventario</a>
+    </nav>
+    <div class="sidebar-usuario">
+      <div class="avatar">U</div>
+      <div class="info">
+        <div class="nombre">USUARIO</div>
+        <div class="correo">usuario@cecar.edu</div>
+      </div>
+      <button onclick="cerrarSesion()" class="btn btn-gris" style="margin-top:8px; width:100%; font-size:11px;">
+        Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <main class="contenido">
+    <div class="pagina">
+      <div class="mod-caja" style="max-width:540px;">
+
+        <div class="mod-barra mod-barra-oscuro">
+          <span style="font-size:12px; font-weight:700; color:#fff; text-transform:uppercase;">INVENTARIO / STOCK</span>
+        </div>
+
+        <div class="mod-cuerpo">
+
+          <div class="resumen-stock mb16">
+            <div class="stock-item">
+              <div class="num-grande" id="totalUnidades">-</div>
+              <div class="texto">Unidades Totales</div>
+            </div>
+            <div class="stock-item">
+              <div class="num-grande" id="totalLotes">-</div>
+              <div class="texto">Lotes Activos</div>
+            </div>
+          </div>
+
+          <div class="buscador mb16">
+            <input type="text" id="filtroLote" placeholder="* Filtrar por lote" />
+            <button class="btn btn-naranja btn-sm" onclick="filtrarPorLote()">VER</button>
+          </div>
+
+          <div class="tabla-wrap">
+            <table class="tabla">
+              <thead>
+                <tr><th>Libro</th><th>Lote</th><th>Stock</th><th>Estado</th></tr>
+              </thead>
+              <tbody id="tablaInventario">
+                <tr><td colspan="4" style="text-align:center; color:#999;">Cargando...</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <div class="mod-pie">
+          <strong>Stock:</strong> disponible / bajo / agotado · consulta por lote · solo lectura para Consulta/Invitado
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
